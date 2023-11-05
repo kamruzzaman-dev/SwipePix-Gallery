@@ -3,12 +3,11 @@
   border-radius: 0.375rem;
   margin-bottom: 0.5rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   background-color: #cfddec;
+  row-gap: .5rem;
 
-  @include breakpoints(largeMobile) {
-    flex-direction: row;
-  }
   .imageGalleryHeader_left {
     font-weight: 600;
     display: inline-block;
