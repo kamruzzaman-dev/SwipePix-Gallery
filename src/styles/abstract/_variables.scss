@@ -1,0 +1,70 @@
+:root {
+  // background color variables
+  --bg-body: #f9fbfb;
+  --bg-white: #fff;
+  --bg-gray-white: #f1f1f1;  
+  // box shadow
+  --box-shadow: 0 5px 5px 0 rgb(82 63 105 / 5%);
+
+  // border-radius
+  --border-radius: 16px;
+  // text color variables
+  --text-primary: #1a73e8;
+  --text-black: #000;
+  --text-disabled: rgba(0, 0, 0, 0.26);
+  --text-navicon-color: #495584;
+  --text-default-color: #7987a1; // new
+  
+  // border color variables
+  --border-1: 1px solid #ededf5;
+  --border-2: 1px solid #939393;
+}
+
+.dark {
+  // background color variables
+  --bg-body: #383d52; // new
+  --bg-white: #2a2e3f; // new
+  --bg-gray-white: #f1f1f1;
+ 
+  // box shadow
+  --box-shadow: 0 5px 5px 0 rgb(82 63 105 / 5%);
+ 
+  --border-radius: 16px;
+  
+  --text-primary: #5cd3b9;
+  --text-black: #fff;
+  --text-disabled: rgb(183 183 183 / 26%);
+  --text-navicon-color: #fff;
+  --text-default-color: #fff; // new
+  
+  // border color variables
+  --border-1: 1px solid #484863;
+  --border-2: 1px solid #939393;
+}
+
+// background color variables
+$bg-body: var(--bg-body);
+$bg-white: var(--bg-white);
+$bg-gray-white: var(--bg-gray-white);
+
+
+// box shadow
+$box-shadow: var(--box-shadow);
+
+
+// border-radius
+$border-radius: var(--border-radius);
+
+// text color variables
+$text-primary: var(--text-primary);
+$text-black: var(--text-black);
+$text-disabled: var(--text-disabled);
+$text-navicon-color: var(--text-navicon-color);
+$text-default-color: var(--text-default-color);
+
+// border color variables
+$border-1: var(--border-1);
+$border-2: var(--border-2);
+
+
+$font-family: "Poppins", sans-serif;

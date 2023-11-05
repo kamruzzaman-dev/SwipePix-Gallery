@@ -1,0 +1,14 @@
+// For variables
+@import "./abstract/variables";
+// For global css
+@import "./global/global";
+@import "./global/reset";
+// For responsive
+@import "./responsive/breakpoints";
+
+
+// App.js css
+html {
+  scroll-behavior: smooth;
+}
+

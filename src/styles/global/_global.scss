@@ -1,0 +1,150 @@
+@import "../responsive/breakpoints";
+body {
+  background-color: $bg-body !important;
+  position: relative;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  color: $text-black !important;
+}
+
+.container {
+  padding: 0 30px;
+  max-width: 1280px;
+  margin: auto;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.card {
+  padding: 10px;
+  box-shadow: 0 0 5px #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  .top {
+    text-align: center;
+    p {
+      font-weight: bold;
+      color: #df3434;
+    }
+  }
+  .drag-area {
+    height: 150px;
+    border-radius: 5px;
+    border: 2px dashed #1786b6;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    -webkit-user-select: none;
+    margin-top: 10px;
+    .visible {
+      font-size: 18px;
+    }
+    .card .select {
+      color: bisque;
+      margin-left: 5px;
+      cursor: pointer;
+      transition: 0.4s;
+      :hover {
+        opacity: 0.6;
+      }
+    }
+  }
+  .button {
+    outline: 0;
+    border: 0;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 400;
+    padding: 8px 13px;
+    width: 100%;
+    background-color: #1786b6;
+  }
+}
+
+/* gird layout */
+
+// Define variables for grid properties
+$columns: 3;
+$column-gap: 5px;
+$row-gap: 5px;
+$grid-padding: 10px;
+
+// Define grid container styles
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  grid-auto-columns: 100px;
+  grid-column-gap: $column-gap;
+  grid-row-gap: $row-gap;
+  padding: $grid-padding;
+}
+
+// Define grid item styles
+.grid-item {
+  color: #ffffff;
+  text-align: center;
+  width: 200px;
+  border: 2px solid #000;
+}
+
+.a {
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+.b {
+  grid-column: 3;
+  grid-row: 1 / 3;
+}
+.c {
+  grid-column: 1;
+  grid-row: 2;
+}
+.d {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.input-file {
+  border: 2px dashed rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  padding: 15px;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  p {
+    color: #df3434;
+    font-weight: bolder;
+  }
+  button {
+    padding: 5px 10px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+
+// Example of responsive grid layout
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
