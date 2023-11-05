@@ -1,8 +1,6 @@
-// @import url(../responsive/_breakpoints.scss);
-
 .imageGallery_container {
-  background-color: red;
-  min-height: 80vh;
+  background-color: #ddd;
+  min-height: 100vh;
   .imageGallery_layout {
     background-color: #ddd;
     margin-left: auto;
@@ -17,6 +15,10 @@
       padding-left: 2rem;
       padding-right: 2rem;
     }
+    @include breakpoints(largeMobile) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
     .imageGallery {
       margin-left: 0.5rem;
       margin-right: 0.5rem;
@@ -25,17 +27,17 @@
       min-height: 500px;
 
       .imageBox_container {
-        padding:1rem;
+        padding: 1rem;
         display: grid !important;
         grid-template-columns: repeat(5, 1fr);
         grid-gap: 1rem;
         grid-auto-rows: minmax(auto, 1fr);
 
-        @include breakpoints(tablet) {
+        @include breakpoints(portraitTablet) {
           grid-template-columns: repeat(4, 1fr);
         }
 
-        @include breakpoints(mobile) {
+        @include breakpoints(largeMobile) {
           grid-template-columns: repeat(2, 1fr);
         }
 
