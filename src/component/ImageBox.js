@@ -1,3 +1,4 @@
+import ImageBoxWithInput from "./ImageBoxWithInput";
 import ImageSelectBox from "./ImageSelectBox";
 
 export default function ImageBox() {
@@ -17,9 +18,11 @@ export default function ImageBox() {
 
   return (
     <main className="imageBox_container">
-      {allImages?.map((image, index) => (
-        <ImageSelectBox key={index} image={image} index={index} />
-      ))}
+      <ImageBoxWithInput>
+        {allImages?.map((image, index) => (
+          <ImageSelectBox key={index} image={image} index={index} />
+        ))}
+      </ImageBoxWithInput>
     </main>
   );
 }
