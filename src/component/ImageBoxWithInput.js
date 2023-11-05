@@ -1,6 +1,7 @@
 import { BiSolidImageAdd } from "react-icons/bi";
 
 export default function ImageBoxWithInput({ children }) {
+
   return (
     <div className="imageBoxWithInput">
       {children}
