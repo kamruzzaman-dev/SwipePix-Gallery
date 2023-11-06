@@ -6,7 +6,9 @@ export default function ImageGalleryHeader({ totalSelect, handleDeleteImage }) {
     <div className="imageGalleryHeader_section">
       {totalSelect.length > 0 ? (
         <Fragment>
-          <label htmlFor="selectAll">{totalSelect.length} Image selected</label>
+          <label className="select_message" htmlFor="selectAll">
+            {totalSelect.length} Image selected
+          </label>
           <div>
             <button onClick={handleDeleteImage} className="delete_button">
               Delete Files
