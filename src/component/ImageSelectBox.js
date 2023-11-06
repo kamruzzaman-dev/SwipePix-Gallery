@@ -25,6 +25,7 @@ const ImageSelectBox = forwardRef(
           className={`${index === 0 ? "large_image" : "normal_image"} `}
           ref={ref}
           {...props}
+          onChange={(e) => handleSelect(image)}
         />
       </div>
     );
