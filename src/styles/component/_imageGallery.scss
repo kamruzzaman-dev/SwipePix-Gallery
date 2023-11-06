@@ -50,7 +50,7 @@
             grid-column: span 2 / span 2;
             grid-row: span 2 / span 2;
             .large_image {
-              height: 300px;
+              height: 19rem !important;
               width: 100%;
               border: 1px solid #ccc;
               border-radius: 0.375rem;
@@ -66,9 +66,9 @@
 
           .normal_image_div {
             grid-column: span 1 / span 1;
-            height: 142px;
+            height: 9rem;
             .normal_image {
-              height: 142px;
+              height: 9rem;
               width: 100%;
               border: 1px solid #ccc;
               border-radius: 0.375rem;

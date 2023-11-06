@@ -18,7 +18,7 @@ const allImages = [
 
 export default function ImageGallery() {
   /* logic */
-  const [images, setImages] = useState(allImages);
+  const [items, setItems] = useState(allImages);
   const [activeId, setActiveId] = useState(null);
 
   return (
@@ -29,8 +29,8 @@ export default function ImageGallery() {
         </div>
         <div className="imageGallery">
           <ImageBox
-            images={images}
-            setImages={setImages}
+            items={items}
+            setItems={setItems}
             activeId={activeId}
             setActiveId={setActiveId}
           />

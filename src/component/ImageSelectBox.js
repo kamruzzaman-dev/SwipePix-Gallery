@@ -1,20 +1,19 @@
-import { useSortable } from "@dnd-kit/sortable";
+import { forwardRef } from "react";
 
-export default function ImageSelectBox({ image, index }) {
-  const sortable = useSortable({ id: image });
-
-  const { attributes, listeners, setNodeRef } = sortable;
-  
+const ImageSelectBox = forwardRef(({ image, index, ...props }, ref) => {
   return (
     <div
-      ref={setNodeRef}
       className={`${index === 0 ? "large_image_div" : " normal_image_div"}`}
+      {...props}
+      ref={ref}
     >
       <img
         src={image}
-        alt={`Image ${index + 1}`}
+        alt={`Image-${index + 1}`}
         className={`${index === 0 ? "large_image" : "normal_image"} `}
       />
     </div>
   );
-}
+});
+
+export default ImageSelectBox;

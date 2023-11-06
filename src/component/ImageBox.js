@@ -5,6 +5,7 @@ import {
   closestCenter,
   MouseSensor,
   TouchSensor,
+  DragOverlay,
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
@@ -14,8 +15,9 @@ import {
   SortableContext,
   rectSortingStrategy,
 } from "@dnd-kit/sortable";
+import { SortableImage } from "./SortableImage";
 
-export default function ImageBox({ images, setImages, activeId, setActiveId }) {
+const ImageBox = ({ items, setItems, activeId, setActiveId }) => {
   const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
 
   function handleDragStart(event) {
@@ -26,14 +28,18 @@ export default function ImageBox({ images, setImages, activeId, setActiveId }) {
     const { active, over } = event;
 
     if (active && over && active.id !== over.id) {
-      setImages((images) => {
-        const oldIndex = images.indexOf(active.id);
-        const newIndex = images.indexOf(over.id);
+      setItems((items) => {
+        const oldIndex = items.indexOf(active.id);
+        const newIndex = items.indexOf(over.id);
 
-        return arrayMove(images, oldIndex, newIndex);
+        return arrayMove(items, oldIndex, newIndex);
       });
     }
 
+    setActiveId(null);
+  }
+
+  function handleDragCancel() {
     setActiveId(null);
   }
 
@@ -43,16 +49,29 @@ export default function ImageBox({ images, setImages, activeId, setActiveId }) {
       collisionDetection={closestCenter}
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
+      onDragCancel={handleDragCancel}
     >
-      <SortableContext images={images} strategy={rectSortingStrategy}>
-        <main className="imageBox_container">
+      <SortableContext items={items} strategy={rectSortingStrategy}>
+        <div className="imageBox_container">
           <ImageBoxWithInput>
-            {images?.map((image, index) => (
-              <ImageSelectBox key={index} image={image} index={index} />
+            {items?.map((image, index) => (
+              <SortableImage
+                key={image}
+                image={image}
+                index={index}
+                position={index}
+              />
             ))}
           </ImageBoxWithInput>
-        </main>
+        </div>
       </SortableContext>
+      <DragOverlay adjustScale={true}>
+        {activeId ? (
+          <ImageSelectBox image={activeId} index={items.indexOf(activeId)} />
+        ) : null}
+      </DragOverlay>
     </DndContext>
   );
-}
+};
+
+export default ImageBox;
