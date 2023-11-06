@@ -37,13 +37,23 @@ export default function ImageGallery() {
       : SetIsSelect([...isSelect, check]);
   };
 
+  /* delete image  */
+  const handleDeleteImage = () => {
+    const selectedItems = items.filter((imageUrl) => !isSelect.includes(imageUrl));
+    setItems(selectedItems);
+    SetIsSelect([]);
+  };
+
   console.log(isSelect);
 
   return (
     <div className="imageGallery_container">
       <div className="imageGallery_layout">
         <div className="imageGallery_header">
-          <ImageGalleryHeader totalSelect={isSelect} />
+          <ImageGalleryHeader
+            totalSelect={isSelect}
+            handleDeleteImage={handleDeleteImage}
+          />
         </div>
         <div className="imageGallery">
           <ImageBox
