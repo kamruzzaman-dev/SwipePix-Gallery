@@ -1,15 +1,12 @@
 .imageGallery_container {
-  background-color: #ddd;
+  background-color: #ffba86;
   min-height: 100vh;
   .imageGallery_layout {
-    background-color: #ddd;
+    background-color: #ffba86;
     margin-left: auto;
     margin-right: auto;
     max-width: 56rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding: 1.5rem 1rem;
 
     @include breakpoints(tablet) {
       padding-left: 2rem;
@@ -20,8 +17,6 @@
       padding-right: 1rem;
     }
     .imageGallery {
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
       background-color: #ffffff;
       border-radius: 0.375rem;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.129);
@@ -109,6 +104,7 @@
               display: none;
             }
             .input_box_label {
+              padding: 0rem 1rem;
               display: flex;
               flex-direction: column;
               gap: 0.5rem;
