@@ -17,7 +17,13 @@ import {
 } from "@dnd-kit/sortable";
 import { SortableImage } from "./SortableImage";
 
-const ImageBox = ({ items, setItems, activeId, setActiveId }) => {
+const ImageBox = ({
+  items,
+  setItems,
+  activeId,
+  setActiveId,
+  handleImageUpload,
+}) => {
   const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
 
   function handleDragStart(event) {
@@ -53,7 +59,7 @@ const ImageBox = ({ items, setItems, activeId, setActiveId }) => {
     >
       <SortableContext items={items} strategy={rectSortingStrategy}>
         <div className="imageBox_container">
-          <ImageBoxWithInput>
+          <ImageBoxWithInput handleImageUpload={handleImageUpload}>
             {items?.map((image, index) => (
               <SortableImage
                 key={image}

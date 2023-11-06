@@ -21,6 +21,12 @@ export default function ImageGallery() {
   const [items, setItems] = useState(allImages);
   const [activeId, setActiveId] = useState(null);
 
+  /* upload new image on the items */
+  function handleImageUpload(e) {
+    const newImage = URL.createObjectURL(e.target.files[0]);
+    setItems([...items, newImage]);
+  }
+
   return (
     <div className="imageGallery_container">
       <div className="imageGallery_layout">
@@ -33,6 +39,7 @@ export default function ImageGallery() {
             setItems={setItems}
             activeId={activeId}
             setActiveId={setActiveId}
+            handleImageUpload={handleImageUpload}
           />
         </div>
       </div>
