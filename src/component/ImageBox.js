@@ -23,6 +23,8 @@ const ImageBox = ({
   activeId,
   setActiveId,
   handleImageUpload,
+  isSelect,
+  handleSelect,
 }) => {
   const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
 
@@ -65,7 +67,8 @@ const ImageBox = ({
                 key={image}
                 image={image}
                 index={index}
-                position={index}
+                isSelect={isSelect}
+                handleSelect={handleSelect}
               />
             ))}
           </ImageBoxWithInput>

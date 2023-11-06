@@ -3,6 +3,7 @@ import ImageBox from "./ImageBox";
 import { useState } from "react";
 
 const allImages = [
+  "./image/image-10.jpeg",
   "./image/image-1.webp",
   "./image/image-2.webp",
   "./image/image-3.webp",
@@ -12,7 +13,6 @@ const allImages = [
   "./image/image-7.webp",
   "./image/image-8.webp",
   "./image/image-9.webp",
-  "./image/image-10.jpeg",
   "./image/image-11.jpeg",
 ];
 
@@ -27,11 +27,23 @@ export default function ImageGallery() {
     setItems([...items, newImage]);
   }
 
+  /* single select items */
+  const [isSelect, SetIsSelect] = useState([]);
+
+  const handleSelect = (check) => {
+    console.log("position:", check);
+    isSelect.includes(check)
+      ? SetIsSelect(isSelect.filter((item) => item !== check))
+      : SetIsSelect([...isSelect, check]);
+  };
+
+  console.log(isSelect);
+
   return (
     <div className="imageGallery_container">
       <div className="imageGallery_layout">
         <div className="imageGallery_header">
-          <ImageGalleryHeader />
+          <ImageGalleryHeader totalSelect={isSelect} />
         </div>
         <div className="imageGallery">
           <ImageBox
@@ -40,6 +52,8 @@ export default function ImageGallery() {
             activeId={activeId}
             setActiveId={setActiveId}
             handleImageUpload={handleImageUpload}
+            isSelect={isSelect}
+            handleSelect={handleSelect}
           />
         </div>
       </div>
