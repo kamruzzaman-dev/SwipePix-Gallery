@@ -31,7 +31,6 @@ export default function ImageGallery() {
   const [isSelect, SetIsSelect] = useState([]);
 
   const handleSelect = (check) => {
-    // console.log("position:", check);
     isSelect.includes(check)
       ? SetIsSelect(isSelect.filter((item) => item !== check))
       : SetIsSelect([...isSelect, check]);
