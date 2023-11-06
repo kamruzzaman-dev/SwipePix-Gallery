@@ -31,7 +31,7 @@ export default function ImageGallery() {
   const [isSelect, SetIsSelect] = useState([]);
 
   const handleSelect = (check) => {
-    console.log("position:", check);
+    // console.log("position:", check);
     isSelect.includes(check)
       ? SetIsSelect(isSelect.filter((item) => item !== check))
       : SetIsSelect([...isSelect, check]);
@@ -39,12 +39,24 @@ export default function ImageGallery() {
 
   /* delete image  */
   const handleDeleteImage = () => {
-    const selectedItems = items.filter((imageUrl) => !isSelect.includes(imageUrl));
+    const selectedItems = items.filter(
+      (imageUrl) => !isSelect.includes(imageUrl)
+    );
     setItems(selectedItems);
     SetIsSelect([]);
   };
 
-  console.log(isSelect);
+  /* select all images */
+  const [isSelectAll, setIsSelectAll] = useState(false);
+
+  const handleSelectAll = () => {
+    setIsSelectAll(!isSelectAll);
+    SetIsSelect(items.map((imageUrl) => imageUrl));
+    if (isSelectAll) {
+      SetIsSelect([]);
+    }
+  };
+
 
   return (
     <div className="imageGallery_container">
@@ -53,6 +65,8 @@ export default function ImageGallery() {
           <ImageGalleryHeader
             totalSelect={isSelect}
             handleDeleteImage={handleDeleteImage}
+            handleSelectAll={handleSelectAll}
+            isSelectAll={isSelectAll}
           />
         </div>
         <div className="imageGallery">
