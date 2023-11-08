@@ -2,6 +2,7 @@ import { forwardRef } from "react";
 
 const ImageSelectBox = forwardRef(
   ({ image, index, isSelect, handleSelect, ...props }, ref) => {
+    const elementStyle = { height: index === 0 ? "19rem" : "9rem" };
     return (
       <div
         className={`${index === 0 ? "large_image_div" : " normal_image_div"}`}
@@ -22,7 +23,8 @@ const ImageSelectBox = forwardRef(
         <img
           src={image}
           alt={`Image-${index + 1}`}
-          className={`${index === 0 ? "large_image" : "normal_image"} `}
+          style={elementStyle}
+          className="image"
           ref={ref}
           {...props}
           onChange={(e) => handleSelect(image)}

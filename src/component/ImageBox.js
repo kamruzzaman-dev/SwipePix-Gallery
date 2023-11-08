@@ -74,7 +74,7 @@ const ImageBox = ({
           </ImageBoxWithInput>
         </div>
       </SortableContext>
-      <DragOverlay className="DragOverlay" adjustScale={true}>
+      <DragOverlay adjustScale={true}>
         {activeId ? (
           <ImageSelectBox image={activeId} index={items.indexOf(activeId)} />
         ) : null}
